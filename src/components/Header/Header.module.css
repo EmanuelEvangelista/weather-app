@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  display: block;
+  text-decoration: none;
+}
+
+.logoImage {
+  height: 90px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logoImage:hover {
+  transform: scale(1.05);
+}

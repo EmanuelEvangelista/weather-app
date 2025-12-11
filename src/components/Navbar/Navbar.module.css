@@ -1,0 +1,93 @@
+.nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+.navList li {
+  margin: 0;
+}
+
+.navList a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.navList a:hover {
+  color: #f4ce14;
+}
+
+.themeBtn {
+  margin-left: auto; /* empuja el botón hacia la derecha */
+}
+
+/* Estilo para el enlace activo (clase `.active` expuesta desde el módulo) */
+.active {
+  color: #f4ce14;
+  font-weight: 600;
+}
+
+/* Añadir línea debajo del enlace activo */
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background-color: #f4ce14;
+  transition: transform 0.3s ease;
+}
+
+/* Estilos para Pantallas Grandes */
+.hamburgerIcon {
+  display: none; /* Oculta el icono de la hamburguesa por defecto */
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Estilos para Pantallas Móviles */
+@media (max-width: 768px) {
+  .navList {
+    display: none; /* Oculta los enlaces por defecto en móvil */
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    z-index: 50;
+  }
+
+  .hamburgerIcon {
+    display: block; /* Muestra la hamburguesa en móvil */
+    right: 1rem;
+  }
+
+  .open {
+    display: flex !important; /* Muestra los enlaces cuando el estado `isOpen` es true */
+  }
+}

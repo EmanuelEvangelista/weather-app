@@ -1,0 +1,111 @@
+.footer {
+  /* Propiedades de estilo generales de tu footer */
+  background-color: #3B82F6;;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 100px repeat(3, 1fr); 
+  grid-template-areas: 
+    "logo nav nav nav"
+    "copyright copyright copyright copyright";
+  gap: 20px 30px; /* Gap: row-gap column-gap */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  align-items: start; /* Alinea los ítems al inicio de su área */
+}
+
+.logo {
+  grid-area: logo;
+  width: 100px;
+  max-width: 100px; /* Asegura que el logo no sea demasiado grande */
+}
+
+.nav {
+  grid-area: nav;
+  display: grid; /* El NAV es un contenedor GRID para sus 3 columnas hijas */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Aplica Flexbox al contenedor de cada columna (div hijo) */
+.columContainer {
+  display: flex; /* Habilita Flexbox */
+  flex-direction: column; /* Apila el contenido verticalmente */
+  height: 100%; /* IMPORTANTE: Asegura que el div tome la altura total de la fila grid */
+}
+
+/* Alinea los títulos (h3) arriba y empuja el contenido restante */
+.columContainer h3 {
+  font-size: 1.1rem;
+  margin-top: 0; /* Elimina cualquier margen superior por defecto */
+  /* Esta es la clave: el margen auto absorbe el espacio, empujando los 'ul' abajo */
+  margin-bottom: 0; 
+  color: #f4d048; /* Opcional: Dale un color para destacarlo */
+}
+
+/* Estilos para las listas y enlaces */
+.columContainer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; 
+  display: flex;
+  flex-direction: column; /* Apila los li/links */
+  gap: 5px; /* Pequeño espacio entre links */
+}
+
+.columContainer a {
+  color: rgba(237, 239, 238, 0.8);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.columContainer a:hover {
+  color: #f4d048;
+}
+
+@media (max-width: 768px) {
+  
+  .footer {
+    /* Cambia a una estructura simple apilada: Logo arriba, nav abajo */
+    grid-template-columns: 1fr; 
+    grid-template-areas: 
+      "logo"
+      "nav"
+      "copyright";
+    gap: 25px;
+    text-align: center; /* Centra el texto del copyright, etc. */
+  }
+
+  .logo {
+    /* Centra el logo en modo móvil */
+    justify-self: center; 
+  }
+
+  .nav {
+    /* El contenedor NAV también se convierte en 1 columna */
+    grid-template-columns: 1fr;
+    gap: 25px; 
+  }
+  
+  .columContainer {
+    /* En móvil, los contenedores deben volver a ser de altura normal */
+    height: auto; 
+    text-align: center;
+  }
+  
+  .columContainer h3 {
+    /* Elimina el efecto de empuje en móvil ya que estarán apilados */
+    margin-bottom: 0.5rem; 
+  }
+}
+
+.footer p {
+  grid-area: copyright;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
