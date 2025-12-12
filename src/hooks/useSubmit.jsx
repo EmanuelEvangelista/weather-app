@@ -32,7 +32,7 @@ const useSubmit = () => {
     }
   };
 
-  return { isLoading, response, submit };
+  return { isLoading, response, submit, setResponse };
 }
 
 export default useSubmit;

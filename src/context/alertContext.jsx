@@ -1,25 +1,27 @@
-import {createContext, useContext, useState} from "react";
+import { createContext, useContext } from "react";
+import { useToast } from "@chakra-ui/react";
 
 const AlertContext = createContext(undefined);
 
-export const AlertProvider = ({ children}) => {
-  const [state, setState] = useState({
-    isOpen: false,
+export const AlertProvider = ({ children }) => {
+  const toast = useToast();
 
-    type: 'success',
+  const onOpen = (status, message) => {
+    toast({
+      title: message,
+      status,          // "success" | "error" | "info" | "warning"
+      duration: 3000,
+      isClosable: true,
+    });
+  };
 
-    message: '',
-  });
+  const onClose = () => {
+    // con toast no hace falta cerrar manualmente, se cierra solo
+  };
 
-  return(
-<AlertContext.Provider
-    value={{
-    ...state,
-    onOpen: (type, message) => setState({ isOpen: true, type, message }),
-    onClose: () => setState({ isOpen: false, type: '', message: '' }),
-     }}
-    >
-    {children}
+  return (
+    <AlertContext.Provider value={{ onOpen, onClose }}>
+      {children}
     </AlertContext.Provider>
   );
 };
