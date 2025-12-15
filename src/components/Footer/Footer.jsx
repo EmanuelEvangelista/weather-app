@@ -1,6 +1,7 @@
 import logo from '../../assets/icon/logo.png';
 import styles from './Footer.module.css';
 import { NavLink } from 'react-router-dom';
+import { FaSearch } from "react-icons/fa";
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -8,13 +9,32 @@ const Footer = () => (
     <nav className={styles.nav}>
       <div className={styles.columContainer}>
         <h3 aria-label='Dorman Navigation'>Dormant Navigation</h3>
-        <ul>
-          <li><NavLink to="/" end className={({isActive}) => isActive ? styles.active : ''}>Home</NavLink></li>
-          <li><NavLink to="/about" className={({isActive}) => isActive ? styles.active : ''}>About</NavLink></li>
-          <li><NavLink to="/menu" className={({isActive}) => isActive ? styles.active : ''}>Menu</NavLink></li>
-          <li><NavLink to="/reservation" className={({isActive}) => isActive ? styles.active : ''}>Reservation</NavLink></li>
-          <li><NavLink to="/order-online" className={({isActive}) => isActive ? styles.active : ''}>Order online</NavLink></li>
-          <li><NavLink to="/login" className={({isActive}) => isActive ? styles.active : ''}>Login</NavLink></li>
+         <ul className={styles.navList}>
+                 <li>
+                   <NavLink to="/" end
+                     className={({ isActive }) => (isActive ? styles.active : "")}>
+                     WEATHER
+                   </NavLink>
+                 </li>
+                 <li>
+                   <NavLink to="/findcity"
+                     className={({ isActive }) => (isActive ? styles.active : "")}>
+                     <FaSearch style={{ marginRight: "6px" }} />
+                     <span>ADD CITY</span>
+                   </NavLink>
+                 </li>
+                 <li>
+                   <NavLink to="/help"
+                     className={({ isActive }) => (isActive ? styles.active : "")}>
+                     HELP
+                   </NavLink>
+                 </li>
+                 <li>
+                   <NavLink to="/login"
+                     className={({ isActive }) => (isActive ? styles.active : "")}>
+                     LOGIN
+                   </NavLink>
+                 </li>
         </ul>
         </div>
         <div className={styles.columContainer}>
@@ -34,7 +54,7 @@ const Footer = () => (
         </ul>
         </div>
     </nav>
-    <p>&copy; 2025 Le Dôme Restaurant. All rights reserved.</p>
+    <p>&copy; 2025 WeatherWise. All rights reserved.</p>
   </footer>
 );
 

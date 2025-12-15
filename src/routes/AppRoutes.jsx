@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout.jsx';
 import Weather from '../pages/Weather/Weather.jsx';
 import FindCity from '../pages/FindCity/FindCity.jsx';
@@ -9,7 +9,7 @@ import UserInfo from '../pages/Login/UserInfo.jsx';
 
 export default function AppRoutes() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainLayout>
         <Routes>
           <Route path="/" element={<Weather />} />
@@ -20,6 +20,6 @@ export default function AppRoutes() {
           <Route path="/user-info" element={<UserInfo />} />
         </Routes>
       </MainLayout>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

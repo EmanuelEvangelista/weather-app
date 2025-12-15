@@ -1,11 +1,12 @@
 import logo from '../../assets/icon/logo.png';
 import styles from './Header.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => (
   <header className={styles.header}>
-    <a href="/" className={styles.logo}>
+    <NavLink to="/" end className={styles.logo}>
       <img className={styles.logoImage} src={logo} alt="WeatherWise Logo" />
-    </a>
+    </NavLink>
   </header>
 );
 
