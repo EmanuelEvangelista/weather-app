@@ -1,7 +1,6 @@
 import logo from '../../assets/icon/logo.png';
 import styles from './Footer.module.css';
 import { NavLink } from 'react-router-dom';
-import { FaSearch } from "react-icons/fa";
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -19,7 +18,6 @@ const Footer = () => (
                  <li>
                    <NavLink to="/findcity"
                      className={({ isActive }) => (isActive ? styles.active : "")}>
-                     <FaSearch style={{ marginRight: "6px" }} />
                      <span>ADD CITY</span>
                    </NavLink>
                  </li>
